@@ -1,7 +1,7 @@
 version: '2'
 services:
-  angular:
-    container_name: angular
+  fwt:
+    container_name: fwt
     build:
       context: ./
       dockerfile: .docker/angular/Dockerfile
