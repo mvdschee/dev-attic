@@ -1,0 +1,12 @@
+version: '2'
+services:
+  angular:
+    container_name: angular
+    build:
+      context: ./
+      dockerfile: .docker/angular/Dockerfile
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 4200:4200
+      - 4201:4201
