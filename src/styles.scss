@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+/*! styles.scss - v1.0 - 2018
+* Flamingos are pretty badass!
+* Copyright (c) 2018 Max van der Schee; Licensed GPL-3.0 */
+
+//-----------------------------------
+//              01. Mixins
+//              02. Variables
+//              03. Reset
+//              04. Fonts
+//              05. Base
+//              06. Common classnames
+//              07. Pages
+//              08. Componenten
+//              09. Styling
+//              10. Responsive
+//-----------------------------------
+
+//-----------------------------------
+//              Mixins
+//-----------------------------------
+
+@import "scss/mixins";
+
+//-----------------------------------
+//              Variables
+//-----------------------------------
+
+@import "scss/variables";
+
+//-----------------------------------
+//              Resets
+//-----------------------------------
+
+@import "scss/normalize";
+
+//-----------------------------------
+//              Fonts
+//-----------------------------------
+
+@import "scss/fonts";
+
+//-----------------------------------
+//              Base
+//-----------------------------------
+
+// html, body styling
+// * {
+//   outline: 1px red solid;
+// }
+
+html, body {
+  height: 100%;
+  background: $seccolor;
+
+}
+
+.content-wrapper{
+flex: 1;
+}
+// end html, body styling
+
+//-----------------------------------
+//         Common classnames
+//-----------------------------------
+
+.hide-from-layout {
+  display: none!important;
+}
+
+.clear {
+  &:after {
+      content: '';
+      display: table;
+      clear: both;
+  }
+}
+
+::selection {
+  background: darken($seccolor, 8%);
+}
+
+.break-line {
+  border-top: 1px;
+  margin: 0;
+  border-bottom: 1px solid $grey;
+}
