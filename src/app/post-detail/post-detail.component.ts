@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -11,11 +12,14 @@ import { Post } from '../post';
 export class PostDetailComponent implements OnInit {
 
   @Input() post: Post;
+  @Output() didChange = new EventEmitter<boolean>();
 
   postData: any;
-  dataFetched = false;
+  changeDetected = false;
 
-  constructor(private backendService: BackendService) {}
+  constructor(private backendService: BackendService,
+              private messageService: MessageService) {
+              }
 
   ngOnInit() {
     this.getPost();
@@ -24,13 +28,14 @@ export class PostDetailComponent implements OnInit {
   getPost(): void {
     const postId = this.post.id;
     this.backendService.getPost(postId)
-      .subscribe(response => this.postData = response[0].content,
-        error => console.log('error', error),
-        () => this.dataFetched = true);
+      .subscribe(response => {this.postData = response; console.log(response);
+      },
+      error => this.messageService.add(error),
+        () => this.changeDetected = true);
   }
 
-  onClose(): void {
-    console.log('click');
-    this.dataFetched = false;
+  onChange(): void {
+    this.didChange.emit();
   }
+
 }

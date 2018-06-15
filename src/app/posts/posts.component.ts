@@ -23,10 +23,14 @@ export class PostsComponent implements OnInit {
 
   getPosts(): void {
     this.backendService.getPosts()
-    .subscribe(posts => this.posts = posts, error => console.log('error'), () => console.log('succes'));
+    .subscribe(posts => this.posts = posts);
   }
 
   onSelect(post: Post): void {
     this.selectedPost = post;
+  }
+
+  onClose() {
+    this.selectedPost = null;
   }
 }

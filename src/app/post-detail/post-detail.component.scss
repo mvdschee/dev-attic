@@ -1,13 +1,44 @@
 .post-details {
     position: fixed;
     top: 0;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    background-color: rgba(0, 0, 0, 0.411);
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .post-content {
     background: rgb(206, 203, 203);
     width: 60rem;
-    margin: 8rem auto;
+    margin: 3rem auto;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+figure {
+    height: 10rem;
+    width: 100%;
+    margin: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+article {
+    padding: 1rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+.close {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: -1;
+    cursor: pointer;
 }

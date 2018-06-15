@@ -10,6 +10,16 @@
     width: 60rem;
     margin: 0 auto;
     padding: 3rem 0;
+
+    @media all and (max-width: 62rem) {
+        width: 90%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media all and (max-width: 30rem) {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
 }
 .post {
     position: relative;
@@ -44,5 +54,11 @@
 
     &:hover, &:active {
         background-position-x: 140px;
+    }
+
+    @media all and (max-width: 30rem) {
+        &:first-child {
+            grid-column: span 1;
+        }   
     }
 }
