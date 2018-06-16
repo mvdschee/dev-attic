@@ -76,7 +76,7 @@ export class BackendService {
           return response.results;
         }),
         map(post => {
-          const postList = [];
+          const postList: Post[] = [];
           post.forEach(element => {
             postList.push( {
               id: element.id,
@@ -103,8 +103,6 @@ export class BackendService {
       map(post => {
         const postContent = [];
         post.forEach(element => {
-          console.log(element);
-
           const content = element.data.content;
           content.forEach(text => {
             postContent.push({
