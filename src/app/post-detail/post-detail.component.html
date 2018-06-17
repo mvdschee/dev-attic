@@ -1,13 +1,13 @@
 <div class="post-content">
-  <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
-    <button (click)="onChange()">x</button>
+  <figure (click)="toggleState()" [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
+    <h2>{{ post.title }}</h2>
   </figure>
   <article>
     <h2>{{ post.title | uppercase }}</h2>
-    <ng-container *ngFor="let post of postData">
-      <p *ngIf="post.element.tag == 'p'"> {{post.element.content}} </p>
-      <img *ngIf="post.element.tag == 'img'" [src]="post.element.content" alt="">
+    <ng-container *ngFor="let p of post.content">
+      <p *ngIf="p.tag == 'p'"> {{p.content}} </p>
+      <img *ngIf="p.tag == 'img'" [src]="p.content" alt="">
     </ng-container>
   </article>
 </div>
-<span class="close" (click)="onChange()"></span>
+<span class="close" (click)="toggleState()"></span>

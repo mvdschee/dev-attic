@@ -1,32 +1,61 @@
 :host {
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow-y: scroll;
-    overflow-x: hidden;
+    // position: relative;
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    // background-position: center top;
+    // background-color: #3d3d3d;
+    // height: 15rem;
+    // overflow: hidden;
+    cursor: pointer;
+
+    &:first-child {
+        grid-column: span 2;
+    }
+
+    @media all and (max-width: 30rem) {
+        &:first-child {
+            grid-column: span 1;
+        }   
+    }
 }
 
 .post-content {
+    height: 100%;
+    margin: 0 auto;
     background: rgb(206, 203, 203);
-    width: 60rem;
-    margin: 3rem auto;
     z-index: 1;
-    border-radius: 5px;
     overflow: hidden;
+    transition: 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     height: 10rem;
     width: 100%;
+    height: 100%;
     margin: 0;
-    background-position: center;
-    background-size: cover;
+    background-position: center top;
+    background-size: 130%;
     background-repeat: no-repeat;
+    transition: 2s linear background-size;
+
+    h2 {
+        color: white;
+        margin: 0;
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+    &:hover, &:active {
+        background-size: 160%;
+    }
 }
 
 article {
+    display: none;
     padding: 1rem;
 
     img {
@@ -41,4 +70,23 @@ article {
     width: 100vw;
     z-index: -1;
     cursor: pointer;
+}
+
+:host.active {
+    .post-content {
+        width: 60rem;
+        margin: 3rem auto;
+        border-radius: 5px;
+    }
+    figure {
+        height: 15rem;
+        background-size: 160%;
+        
+        &:hover, &:active {
+            background-size: 130%;
+        }
+    }
+    article {
+        display: block;
+    }
 }

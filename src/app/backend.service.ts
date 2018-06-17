@@ -76,65 +76,67 @@ export class BackendService {
           return response.results;
         }),
         map(post => {
-          const postList: Post[] = [];
+          const postList = [];
           post.forEach(element => {
             postList.push( {
               id: element.id,
               url: element.href,
               slug: element.slugs[0],
               title: element.data.title[0].text,
-              content: element.data.content,
-              image: element.data.post_image.url
+              content: this.transformContent(element.data.content),
+              image: element.data.post_image.url,
+              state: 'inactive'
             });
           });
+          console.log(postList);
 
           return postList;
         })
       );
     }
 
-  getPost(postId): Observable<Post[]> {
-    return this.getDocuments(postId , 'id').pipe(
-      tap(heroes => this.log(`fetched post`)),
-      catchError(this.handleError('getPost', [])),
-      map(response => {
-        return response.results;
-      }),
-      map(post => {
-        const postContent = [];
-        post.forEach(element => {
-          console.log(element);
-          const content = element.data.content;
-          content.forEach(text => {
-            postContent.push({
-              element: this.transformContent(text)
-            });
-          });
-        });
-        return postContent;
-      })
-    );
-  }
+  // getPost(postId): Observable<Post[]> {
+  //   return this.getDocuments(postId , 'id').pipe(
+  //     tap(heroes => this.log(`fetched post`)),
+  //     catchError(this.handleError('getPost', [])),
+  //     map(response => {
+  //       return response.results;
+  //     }),
+  //     map(post => {
+  //       const postContent = [];
+  //       post.forEach(element => {
+  //         const content = element.data.content;
+  //         content.forEach(text => {
+  //           postContent.push({
+  //             element: this.transformContent(text)
+  //           });
+  //         });
+  //       });
+  //       return postContent;
+  //     })
+  //   );
+  // }
 
   transformContent(content: any) {
-    const type = content.type;
-
-    switch (type) {
-      case 'paragraph': return { tag: 'p', content: content.text};
-      // case content.preformatted: return serializePreFormatted(element);
-      // case content.strong: return serializeStandardTag('strong', element, children);
-      // case content.em: return serializeStandardTag('em', element, children);
-      // case content.listItem: return serializeStandardTag('li', element, children);
-      // case content.oListItem: return serializeStandardTag('li', element, children);
-      // case content.list: return serializeStandardTag('ul', element, children);
-      // case content.oList: return serializeStandardTag('ol', element, children);
-      case 'image': return {tag: 'img', content: content.url};
-      // case content.embed: return serializeEmbed(element);
-      // case 'hyperlink': return serializeHyperlink(linkResolver, element, children);
-      // case content.label: return serializeLabel(element, children);
-      // case content.span: return serializeSpan(content);
-      default: return '';
-    }
-
+    const postContent = [];
+    content.forEach(element => {
+      switch (element.type) {
+        case 'paragraph': postContent.push({ tag: 'p', content: element.text}); break;
+        // case content.preformatted: return serializePreFormatted(element);
+        // case content.strong: return serializeStandardTag('strong', element, children);
+        // case content.em: return serializeStandardTag('em', element, children);
+        // case content.listItem: return serializeStandardTag('li', element, children);
+        // case content.oListItem: return serializeStandardTag('li', element, children);
+        // case content.list: return serializeStandardTag('ul', element, children);
+        // case content.oList: return serializeStandardTag('ol', element, children);
+        case 'image': postContent.push({ tag: 'img', content: element.url }); break;
+        // case content.embed: return serializeEmbed(element);
+        // case 'hyperlink': return serializeHyperlink(linkResolver, element, children);
+        // case content.label: return serializeLabel(element, children);
+        // case content.span: return serializeSpan(content);
+        default: return '';
+      }
+    });
+    return postContent;
   }
 }

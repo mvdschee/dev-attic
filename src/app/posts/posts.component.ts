@@ -11,28 +11,36 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss'],
   animations: [
-    trigger('flyInOut', [
-      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
-      transition('void => *', [
-        style({
-          opacity: 0,
-          transform: 'translateY(100%)'
-        }),
-        animate('0.2s ease-in')
-      ]),
-      transition('* => void', [
-        animate('0.2s 0.1s ease-out', style({
-          opacity: 0,
-          transform: 'translateY(100%)'
-        }))
-      ])
+    trigger('postState', [
+      state('inactive', style({
+        position: 'relative',
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center top',
+        backgroundColor: '#3d3d3d',
+        height: '15rem',
+        overflow: 'hidden'
+      })),
+      state('active', style({
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100%',
+        width: '100vw',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        overflowY: 'scroll',
+        overflowX: 'hidden',
+        zIndex: 2
+      })),
+      transition('inactive => active', animate('700ms ease-in')),
+      transition('active => inactive', animate('700ms ease-out'))
     ])
   ]
 })
 export class PostsComponent implements OnInit {
 
   posts: Post[];
-  selectedPost: Post;
+  // selectedPost: Post;
 
   constructor(private backendService: BackendService) { }
 
@@ -45,11 +53,8 @@ export class PostsComponent implements OnInit {
     .subscribe(posts => this.posts = posts);
   }
 
-  onSelect(post: Post): void {
-    this.selectedPost = post;
-  }
 
-  onClose() {
-    this.selectedPost = null;
+  toggleState(stateChange: string) {
+    console.log(stateChange);
   }
 }

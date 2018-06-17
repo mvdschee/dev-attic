@@ -5,4 +5,5 @@ export class Post {
     title: string;
     content: Array<object>;
     image: string;
+    state: string;
 }

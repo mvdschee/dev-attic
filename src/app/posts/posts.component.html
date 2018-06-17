@@ -1,16 +1,5 @@
-<section class="posts">
-    <div class="post-group">
-        <div *ngFor="let post of posts"
-            (click)="onSelect(post)"
-            class="post"
-            [class.selected]="post === selectedPost" 
-            [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
-
-            <article class="text">
-                <h2>{{post.title}}</h2>
-                <p *ngFor="let p of post.content | slice:1:2">{{p.text}}</p>
-            </article>
-        </div>
-    </div>
+<section class="post-group">
+    <ng-container *ngFor="let post of posts">
+        <app-post-detail [class]="post.state" [@postState]="post.state" [post]="post"></app-post-detail>
+    </ng-container>
 </section>
-<app-post-detail *ngIf="selectedPost" [@flyInOut]="'in'" [post]="selectedPost" (stateChange)="onClose()"></app-post-detail>
