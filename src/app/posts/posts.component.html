@@ -13,4 +13,4 @@
         </div>
     </div>
 </section>
-<app-post-detail *ngIf="selectedPost" [post]="selectedPost" (didChange)="onClose()"></app-post-detail>
+<app-post-detail *ngIf="selectedPost" [@flyInOut]="'in'" [post]="selectedPost" (stateChange)="onClose()"></app-post-detail>

@@ -23,12 +23,12 @@
 }
 .post {
     position: relative;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center top;
     background-color: #3d3d3d;
     height: 15rem;
-    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: 5px;
     cursor: pointer;
     
@@ -46,6 +46,7 @@
         position: absolute;
         bottom: 0;
         padding: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.384);
     }
 
     &:first-child {
@@ -53,7 +54,7 @@
     }
 
     &:hover, &:active {
-        background-position-x: 140px;
+        background-size: 140%;
     }
 
     @media all and (max-width: 30rem) {

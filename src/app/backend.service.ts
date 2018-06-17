@@ -103,6 +103,7 @@ export class BackendService {
       map(post => {
         const postContent = [];
         post.forEach(element => {
+          console.log(element);
           const content = element.data.content;
           content.forEach(text => {
             postContent.push({
@@ -129,7 +130,7 @@ export class BackendService {
       // case content.oList: return serializeStandardTag('ol', element, children);
       case 'image': return {tag: 'img', content: content.url};
       // case content.embed: return serializeEmbed(element);
-      // case content.hyperlink: return serializeHyperlink(linkResolver, element, children);
+      // case 'hyperlink': return serializeHyperlink(linkResolver, element, children);
       // case content.label: return serializeLabel(element, children);
       // case content.span: return serializeSpan(content);
       default: return '';
