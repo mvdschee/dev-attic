@@ -1,5 +1,8 @@
 <section class="post-group">
-    <ng-container *ngFor="let post of posts">
-        <app-post-detail [class]="post.state" [@postState]="post.state" [post]="post"></app-post-detail>
-    </ng-container>
+    <div *ngFor="let post of posts" class="post-item" (click)="onSelect(post)">
+        <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
+            <h2>{{ post.title }}</h2>
+        </figure>
+    </div>
 </section>
+<app-post-detail  *ngIf="selectedPost" [class]="selectedPost.state" [@postState]="selectedPost.state" [post]="selectedPost"></app-post-detail>

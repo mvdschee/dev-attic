@@ -1,20 +1,19 @@
 <header class="header" itemscope itemtype="https://schema.org/WPHeader">
-    <h1 class="hide-from-layout">{{ title }}</h1>
-    <a id="js-logo" class="logo" routerLink="/"> FWT </a>
+    <a id="js-logo" class="logo" routerLink="/"> <h1>{{ title }}</h1> </a>
     <nav class="navigation-group">
-        <a class="navigation-item"  routerLinkActive="active"
+        <a class="navigation-item" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}" routerLink="/" itemprop="url">Home</a>
-        <a class="navigation-item"  routerLinkActive="active"
+        <a class="navigation-item" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}" routerLink="/posts" itemprop="url">Posts</a>
     </nav>
 </header>
 
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+<!-- <app-messages></app-messages> -->
 
 <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
     <h2 class="nocontent hide-from-layout">Footer</h2>
-    <h3>Copyright © Max van der Schee - Created by
+    <h3>Created with <3 by
         <a href="https://maxvanderschee.nl" target="_blank" rel="noreferrer noopener">Me</a>
     </h3>
 </footer>

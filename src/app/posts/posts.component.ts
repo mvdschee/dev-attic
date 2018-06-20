@@ -3,7 +3,7 @@ import { BackendService } from '../backend.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 
 
 @Component({
@@ -13,34 +13,30 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('postState', [
       state('inactive', style({
-        position: 'relative',
-        backgroundSize: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center top',
-        backgroundColor: '#3d3d3d',
-        height: '15rem',
-        overflow: 'hidden'
+        display: 'none'
       })),
       state('active', style({
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: '100%',
-        width: '100vw',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        overflowY: 'scroll',
-        overflowX: 'hidden',
-        zIndex: 2
+        display: 'block'
       })),
-      transition('inactive => active', animate('700ms ease-in')),
-      transition('active => inactive', animate('700ms ease-out'))
+      transition('* => active', animate('300ms ease-in', keyframes([
+        style({ transform: 'scale(0)', opacity: 0, background: 'rgba(0, 0, 0, 0)', offset: 0 }),
+        style({ transform: 'scale(0.5)', opacity: 0, background: 'rgba(0, 0, 0, 0)', offset: 0.5 }),
+        style({ transform: 'scale(0.9)', opacity: 0.9, background: 'rgba(0, 0, 0, 0)', offset: 0.9 }),
+        style({ transform: 'scale(1)', opacity: 1, background: 'rgba(150, 150, 150, 0.7)', offset: 1.0 })
+      ]))),
+      transition('active => inactive', animate('300ms ease-out', keyframes([
+        style({ transform: 'scale(1)', background: 'rgba(150, 150, 150, 0.7)', opacity: 1, offset: 0 }),
+        style({ transform: 'scale(0.9)', background: 'rgba(0, 0, 0, 0)', opacity: 0.9, offset: 0.1 }),
+        style({ transform: 'scale(0.5)', background: 'rgba(0, 0, 0, 0)', opacity: 0, offset: 0.5 }),
+        style({ transform: 'scale(0)', background: 'rgba(0, 0, 0, 0)', opacity: 0, offset: 1.0 })
+      ])))
     ])
   ]
 })
 export class PostsComponent implements OnInit {
 
   posts: Post[];
-  // selectedPost: Post;
+  selectedPost: Post;
 
   constructor(private backendService: BackendService) { }
 
@@ -53,8 +49,8 @@ export class PostsComponent implements OnInit {
     .subscribe(posts => this.posts = posts);
   }
 
-
-  toggleState(stateChange: string) {
-    console.log(stateChange);
+  onSelect(post: Post): void {
+    this.selectedPost = post;
+    this.selectedPost.state = this.selectedPost.state === 'active' ? 'inactive' : 'active';
   }
 }
