@@ -119,21 +119,17 @@ export class BackendService {
 
   transformContent(content: any) {
     const postContent = [];
+
     content.forEach(element => {
       switch (element.type) {
         case 'paragraph': postContent.push({ tag: 'p', content: element.text}); break;
-        // case content.preformatted: return serializePreFormatted(element);
-        // case content.strong: return serializeStandardTag('strong', element, children);
-        // case content.em: return serializeStandardTag('em', element, children);
-        // case content.listItem: return serializeStandardTag('li', element, children);
-        // case content.oListItem: return serializeStandardTag('li', element, children);
-        // case content.list: return serializeStandardTag('ul', element, children);
-        // case content.oList: return serializeStandardTag('ol', element, children);
         case 'image': postContent.push({ tag: 'img', content: element.url }); break;
-        // case content.embed: return serializeEmbed(element);
-        // case 'hyperlink': return serializeHyperlink(linkResolver, element, children);
-        // case content.label: return serializeLabel(element, children);
-        // case content.span: return serializeSpan(content);
+        case 'list-item': postContent.push({ tag: 'li', content: element.text }); break;
+        case 'heading1': postContent.push({ tag: 'h1', content: element.text }); break;
+        case 'heading2': postContent.push({ tag: 'h2', content: element.text }); break;
+        case 'heading3': postContent.push({ tag: 'h3', content: element.text }); break;
+        case 'heading4': postContent.push({ tag: 'h4', content: element.text }); break;
+        case 'heading5': postContent.push({ tag: 'h5', content: element.text }); break;
         default: return '';
       }
     });

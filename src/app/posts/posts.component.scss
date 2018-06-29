@@ -12,6 +12,7 @@
     width: 60rem;
     margin: 0 auto;
     padding: 3rem 0;
+    box-sizing: border-box;
 
     @media all and (max-width: 62rem) {
         width: 90%;
@@ -21,6 +22,7 @@
     @media all and (max-width: 30rem) {
         width: 100%;
         grid-template-columns: 1fr;
+        padding: 3rem 1rem;
     }
 }
 
@@ -44,6 +46,7 @@
         margin: 0;
         text-align: center;
         font-size: 2rem;
+        text-shadow: 1px 1px #1b1b1b;
     }
     
     figure {

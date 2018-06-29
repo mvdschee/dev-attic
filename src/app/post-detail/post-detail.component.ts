@@ -14,6 +14,11 @@ export class PostDetailComponent implements OnInit {
 
   toggleState() {
     this.post.state = this.post.state === 'active' ? 'inactive' : 'active';
+
+    if (this.post.state === 'inactive') {
+      document.body.style.overflowY = 'initial';
+    }
+
   }
 
   ngOnInit() {

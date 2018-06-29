@@ -1,4 +1,5 @@
 :host {
+    display: block;
     box-sizing: border-box;
     position: fixed;
     top: 0;
@@ -9,6 +10,26 @@
     background: rgba(150, 150, 150, 0.7);
     overflow: hidden;
     z-index: 2;
+
+    @media all and (max-width: 62rem) {
+        padding: 0; 
+    }
+
+    &.active {
+        animation: fadeIn .3s ease-in-out forwards;
+        
+        .post-content {
+            animation: slideIn .3s ease-in-out forwards;
+        }
+    }
+
+    &.inactive {
+        animation: fadeOut .3s ease-in-out forwards;
+
+        .post-content {
+            animation: slideOut .3s ease-in-out forwards;
+        }
+    }
 }
 
 .post-content {
@@ -18,11 +39,13 @@
     border-radius: 5px;
     background: #5a5a5a;
     z-index: 1;
-    overflow-y: auto;
+    overflow-y: visible;
     overflow-x: hidden;
+    will-change: transform; 
 
     @media all and (max-width: 62rem) {
-        width: 90%; 
+        width: 100%; 
+        border-radius: 0;
     }
 }
 
@@ -35,7 +58,7 @@ figure {
     margin: 0;
     position: relative;
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 
     &:before {
@@ -53,6 +76,7 @@ figure {
         margin: 0;
         text-align: center;
         font-size: 2rem;
+        text-shadow: 1px 1px #1b1b1b;
     }
 }
 
@@ -60,7 +84,7 @@ article {
     display: block;
     padding: 1rem;
 
-    h2 {
+    h1,h2,h3,h4,h5 {
         color: white;
     }
 
@@ -70,6 +94,14 @@ article {
 
     img {
         width: 100%;
+    }
+
+    .list {
+        margin: 0;
+        &:before {
+            content: '-';
+            display: inline;
+        }
     }
 }
 
@@ -95,4 +127,39 @@ article {
     &:hover, &:active {
         color: rgb(172, 172, 172);
     }
+}
+
+.scroll-up {
+    padding: 0 2rem 2rem;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-decoration: underline;
+    scroll-behavior: smooth; 
+    
+}
+
+@keyframes fadeIn {
+    0%   { background: rgba(150, 150, 150, 0); z-index: -9999;}
+    1%   { z-index: 2; }
+    60%  { background: rgba(150, 150, 150, 0); }
+    100% { background: rgba(150, 150, 150, 0.7); }
+}
+
+@keyframes fadeOut {
+    0%   { background: rgba(150, 150, 150, 0.7); }
+    20%  { background: rgba(150, 150, 150, 0); }
+    99%  { z-index: 2; }
+    100% { background: rgba(150, 150, 150, 0); z-index: -9999; }
+}
+
+@keyframes slideIn {
+    0%   { transform: translate(-50%, 150%) rotateZ(-20deg); }
+    100% { transform: translate(0) rotateZ(0deg); }
+}
+
+@keyframes slideOut {
+    0%   { transform: translate(0) }
+    100% { transform: translate(-50%, 150%) rotateZ(-20deg); }
 }
