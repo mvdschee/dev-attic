@@ -30,7 +30,7 @@ export class PostsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // viewChild is set after the view has been initialized
-    console.log('showshit');
+    // console.log('showshit');
   }
 
   getPosts(): void {

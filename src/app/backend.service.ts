@@ -77,10 +77,11 @@ export class BackendService {
         }),
         map(post => {
           const postList = [];
+
           post.forEach(element => {
             postList.push( {
               id: element.id,
-              url: element.href,
+              url: element.data.demo.url,
               slug: element.slugs[0],
               title: element.data.title[0].text,
               content: this.transformContent(element.data.content),
@@ -88,7 +89,6 @@ export class BackendService {
               state: 'inactive'
             });
           });
-          console.log(postList);
 
           return postList;
         })

@@ -15,6 +15,6 @@
       <h5 *ngIf="p.tag == 'h5'"> {{p.content}} </h5>
     </ng-container>
   </article>
-  <!-- <a class="scroll-up" href="#{{post.slug}}">^ to top</a> -->
+  <a class="scroll-up" href="{{post.url}}" target="_blank" rel="external noopener">View Demo</a>
 </div>
 <span class="close" (click)="toggleState()"></span>
