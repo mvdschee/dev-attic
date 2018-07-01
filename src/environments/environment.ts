@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://forgotten.cdn.prismic.io/api/v2'
+  apiUrl: 'https://dev-attic.cdn.prismic.io/api/v2'
 };
