@@ -1,7 +1,7 @@
 version: '2'
 services:
-  fwt:
-    container_name: fwt
+  devattic:
+    container_name: devattic
     build:
       context: ./
       dockerfile: .docker/angular/Dockerfile
@@ -9,4 +9,3 @@ services:
       - ./:/var/www/app
     ports:
       - 4200:4200
-      - 4201:4201
