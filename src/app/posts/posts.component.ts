@@ -1,6 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 import { BackendService } from '../backend.service';
-import { Post } from '../post';
+import { HttpClient } from '@angular/common/http';
+
+export interface Post {
+  title: string;
+  image: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-posts',
@@ -13,7 +19,7 @@ export class PostsComponent implements OnInit {
   selectedPost: Post;
   state = 'inactive';
 
-  constructor(private backendService: BackendService) {
+  constructor(private backendService: BackendService, private http: HttpClient) {
   }
 
   ngOnInit() {
@@ -22,9 +28,19 @@ export class PostsComponent implements OnInit {
 
 
   getPosts(): void {
-    this.backendService.getPosts()
-    .subscribe(posts => this.posts = posts, error => {}, () => {
-      console.log(this.posts);
+    this.backendService.getPosts().subscribe(posts => {
+      this.posts = [];
+      posts.forEach(element => {
+        this.http.get(element.markdownUrl, {responseType: 'text'}).subscribe(
+            response => {
+            this.posts.push({
+              title: element.title,
+              image: element.imgUrl,
+              content: response
+            });
+          }
+        );
+      });
     });
   }
 

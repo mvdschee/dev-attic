@@ -83,3 +83,44 @@ flex: 1;
   margin: 0;
   border-bottom: 1px solid $grey;
 }
+
+
+// markdown styling
+.markdown {
+    display: block;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.952);
+    --x-height-multiplier: 0.375;
+    --baseline-multiplier: 0.17;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    text-rendering: optimizeLegibility;
+    -moz-font-feature-settings: "liga" on;
+
+    h1, h2, h3, h4, h5 {
+        color: rgb(0, 0, 0);
+    }
+
+    p {
+        color: rgba(0, 0, 0, 0.952);
+    }
+
+    img {
+        width: 100%;
+    }
+
+    ul {
+      list-style: initial;
+    }
+
+    blockquote {
+      p {
+        font-style: italic;
+        font-size: 1.3rem;
+      }
+    }
+}

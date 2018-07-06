@@ -15,7 +15,7 @@ import { Post } from './post';
 export class BackendService {
 
   private postsCollection: AngularFirestoreCollection<Post>;
-  posts: Observable<Post[]>;
+  private posts: Observable<Post[]>;
 
   constructor(
     private storage: AngularFireStorage,
@@ -27,56 +27,6 @@ export class BackendService {
   }
 
   getPosts(): Observable<any> {
-    return this.posts.pipe(
-      map(response => {
-        const postsList = [];
-        response.forEach( element => {
-          postsList.push({
-            title: element.title,
-            content: this.fetchMarkdown(element.markdownUrl),
-            image: element.imgUrl
-          });
-        });
-          console.log(postsList);
-          return postsList;
-    }));
-
-  }
-
-  fetchMarkdown(url: string) {
-     return this.http.get(url, { responseType: 'text' }).subscribe(
-      response => {
-        console.log(response);
-        return response;
-      }
-    );
+    return this.posts;
   }
 }
-
-
-// getPosts(): Observable < Post[] > {
-//   return this.getDocuments('post', 'type').pipe(
-//     tap(heroes => this.log(`fetched posts`)),
-//     catchError(this.handleError('getPosts', [])),
-//     map(response => {
-//       return response.results;
-//     }),
-//     map(post => {
-//       const postList = [];
-
-//       post.forEach(element => {
-//         postList.push({
-//           id: element.id,
-//           url: element.data.demo.url,
-//           slug: element.slugs[0],
-//           title: element.data.title[0].text,
-//           content: this.transformContent(element.data.content),
-//           image: element.data.post_image.url,
-//           state: 'inactive'
-//         });
-//       });
-
-//       return postList;
-//     })
-//   );
-// }
