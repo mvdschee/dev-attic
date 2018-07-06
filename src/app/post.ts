@@ -1,9 +1,6 @@
-export class Post {
-    id: string;
-    url: string;
-    slug: string;
+export interface Post {
     title: string;
-    content: Array<object>;
-    image: string;
+    imgUrl: string;
+    markdownUrl: string;
     state: string;
 }

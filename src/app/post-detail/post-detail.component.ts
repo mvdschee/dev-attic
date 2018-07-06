@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Post } from '../post';
+import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-post-detail',
@@ -10,12 +11,13 @@ export class PostDetailComponent implements OnInit {
 
   @Input() post: Post;
 
-  constructor() {}
+  constructor(private postcomponent: PostsComponent) {
+  }
 
   toggleState() {
-    this.post.state = this.post.state === 'active' ? 'inactive' : 'active';
+    this.postcomponent.state = this.postcomponent.state === 'active' ? 'inactive' : 'active';
 
-    if (this.post.state === 'inactive') {
+    if (this.postcomponent.state === 'inactive') {
       document.body.style.overflowY = 'initial';
     }
 

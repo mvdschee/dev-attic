@@ -29,8 +29,7 @@
 .post-item {
     cursor: pointer;
     height: 15rem;
-    overflow: hidden;
-    
+    overflow: hidden;    
     &:first-child {
         grid-column: span 2;
     }
@@ -61,6 +60,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
+        background-color: #999898;
         transition: 0.3s ease-in-out;
         
         &:before, &:after {

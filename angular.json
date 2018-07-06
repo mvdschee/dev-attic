@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "forgotten-web-techniques": {
+    "dev-attic": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -23,7 +23,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -48,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "forgotten-web-techniques:build"
+            "browserTarget": "dev-attic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "forgotten-web-techniques:build:production"
+              "browserTarget": "dev-attic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "forgotten-web-techniques:build"
+            "browserTarget": "dev-attic:build"
           }
         },
         "test": {
@@ -93,7 +95,7 @@
         }
       }
     },
-    "forgotten-web-techniques-e2e": {
+    "dev-attic-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -102,7 +104,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "forgotten-web-techniques:serve"
+            "devServerTarget": "dev-attic:serve"
           }
         },
         "lint": {
@@ -119,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "forgotten-web-techniques",
+  "defaultProject": "dev-attic",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

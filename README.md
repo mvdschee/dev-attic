@@ -1,4 +1,4 @@
-# forgotten-web-techniques
+# dev-attic
 An application for my graduation project
 
 # Project

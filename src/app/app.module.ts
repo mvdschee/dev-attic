@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BackendService } from './backend.service';
 import { PostDetailComponent } from './post-detail/post-detail.component';
-import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { MarkdownModule } from 'ngx-markdown';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { BackendService } from './backend.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -22,9 +28,16 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    MarkdownModule.forRoot({ loader: HttpClientModule })
   ],
-  providers: [BackendService],
+  providers: [
+    BackendService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
