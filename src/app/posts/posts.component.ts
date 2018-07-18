@@ -19,8 +19,9 @@ export class PostsComponent implements OnInit {
   selectedPost: Post;
   state = 'inactive';
 
-  constructor(private backendService: BackendService, private http: HttpClient) {
-  }
+  constructor(
+    private backendService: BackendService,
+    private http: HttpClient) {}
 
   ngOnInit() {
     this.getPosts();
@@ -33,13 +34,17 @@ export class PostsComponent implements OnInit {
       posts.forEach(element => {
         this.http.get(element.markdownUrl, {responseType: 'text'}).subscribe(
             response => {
-            this.posts.push({
-              title: element.title,
-              image: element.imgUrl,
-              content: response
-            });
-          }
-        );
+              this.posts.push({
+                title: element.title,
+                image: element.imgUrl,
+                content: response
+              });
+            },
+            error => {},
+            () => {
+              document.getElementById('posts').classList.remove('loading');
+            }
+          );
       });
     });
   }

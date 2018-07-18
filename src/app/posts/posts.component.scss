@@ -10,6 +10,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     width: 60rem;
+    min-height: 79vh;
     margin: 0 auto;
     padding: 3rem 0;
     box-sizing: border-box;
@@ -29,7 +30,8 @@
 .post-item {
     cursor: pointer;
     height: 15rem;
-    overflow: hidden;    
+    overflow: hidden;
+
     &:first-child {
         grid-column: span 2;
     }
@@ -94,9 +96,11 @@
         &:before, &:after {
             transform: rotateX(84deg);
         }
-    }
-    
+    } 
 }
+
+
+
 @keyframes one {
     0%   { transform: scale(1); }
     40%  { transform: scale(0.9); }

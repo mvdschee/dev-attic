@@ -1,4 +1,4 @@
-<section class="post-group">
+<section id="posts" class="post-group loading">
     <div *ngFor="let post of posts" class="post-item" (click)="onSelect(post)">
         <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
             <h2>{{ post.title }}</h2>

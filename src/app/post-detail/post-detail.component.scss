@@ -11,7 +11,7 @@
     overflow: hidden;
     z-index: 2;
 
-    @media all and (max-width: 62rem) {
+    @media all and (max-width: 72rem) {
         padding: 0; 
     }
 
@@ -43,7 +43,7 @@
     overflow-x: hidden;
     will-change: transform; 
 
-    @media all and (max-width: 62rem) {
+    @media all and (max-width: 72rem) {
         width: 100%; 
         border-radius: 0;
     }
@@ -71,17 +71,21 @@ figure {
     //     background: linear-gradient(transparent, #ffffff)
     // }
 
-    h2 {
-        color: white;
-        margin: 0;
-        text-align: center;
-        font-size: 2rem;
-        text-shadow: 1px 1px #1b1b1b;
-    }
+    // h2 {
+    //     color: white;
+    //     margin: 0;
+    //     text-align: center;
+    //     font-size: 2rem;
+    //     text-shadow: 1px 1px #1b1b1b;
+    // }
 }
 article {
     width: 60rem;
     margin: 0 auto;
+
+    @media all and (max-width: 62rem) {
+        width: 100%; 
+    }
 }
 
 .close {
