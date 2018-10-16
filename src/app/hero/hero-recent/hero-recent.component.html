@@ -1,3 +1,7 @@
+<h2>
+  Proof of Concepts
+</h2>
+
 <ul id="posts" class="post-group">
   <li *ngFor="let post of posts" class="post-item" (click)="onSelect(post)">
     <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
@@ -7,3 +11,7 @@
     <a class="button" href="{{post.file}}">{{ post.title }}</a>
   </li>
 </ul>
+
+<div>
+   Scroll down for more Proof of Concepts
+</div>

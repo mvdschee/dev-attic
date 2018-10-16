@@ -1,11 +1,10 @@
 :host {
-    display: block;
     padding: 4rem;
 }
 
 .post-group {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr; 
     grid-column-gap: 50px;
     grid-row-gap: 50px;
