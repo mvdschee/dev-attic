@@ -1,7 +1,7 @@
 @import "../../../scss/variables";
 
 :host {
-    background-color: rgb(121, 44, 221);
+    background-color: #5141FF;
     position: relative;
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@
         position: absolute;
         width: 193px;
         height: 100%;
-        background: linear-gradient(to right, transparent, #762CD9);
+        background: linear-gradient(to right, transparent, #5141FF);
         right: 0; 
         z-index: -1;
     }
@@ -34,5 +34,28 @@
         outline: none;
         border: none;
         padding: 10px 20px;
+    }
+}
+
+.links {
+
+    a {
+        margin: 0 0.5rem;
+        color: #262183; 
+        transition: 0.3s ease-in-out color;
+
+        &:hover {
+            color: white;
+        }
+    }
+}
+
+@media all and (max-width: 740px) {
+    :host {
+        padding: 2rem 0;  
+        
+        &:before { 
+            display: none;
+        }
     }
 }

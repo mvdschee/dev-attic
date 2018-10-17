@@ -12,3 +12,49 @@
     padding: 3rem 0;
     box-sizing: border-box;
 }
+
+.scroll {
+    display: block;
+    padding: 3rem 0 0;
+    text-align: center;
+
+    svg {
+        display: block;
+        margin: 1rem auto;
+        transition: 0.3s;
+        animation: scroll 2.5s normal 1.5s cubic-bezier(0.28, 0.84, 0.42, 1);
+    }
+}
+
+@media all and (max-width: 740px) {
+    :host {
+        padding: 0 1rem;
+    }
+
+    .post-group {
+        grid-column-gap: 20px;
+        grid-row-gap: 3rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .scroll {
+        display: none;
+    }
+}
+
+@media all and (max-width: 428px) {
+
+    .post-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes scroll {
+ 0% {transform:translateY(0)}
+ 33% {transform:translateY(10px)}
+ 34% {transform:translateY(0)}
+ 66% {transform:translateY(10px)}
+ 67% {transform:translateY(0)}
+ 100% {transform:translateY(10px)}
+}

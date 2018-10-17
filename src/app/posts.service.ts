@@ -8,6 +8,7 @@ export interface Post {
   file: string;
   content: string;
   image: string;
+  medium: string;
 }
 
 @Injectable({
@@ -39,7 +40,8 @@ export class PostsService {
         title: element.title,
         file: PostsService.postUrl + element.file,
         content: element.content,
-        image: PostsService.postUrl + element.image
+        image: PostsService.postUrl + element.image,
+        medium: element.medium
       });
     });
     return of(list.reverse());

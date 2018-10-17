@@ -13,3 +13,23 @@
     padding: 3rem 0;
     box-sizing: border-box;
 }
+
+@media all and (max-width: 740px) {
+    :host {
+        padding: 0 1rem;
+    }
+
+    .post-group {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 3rem;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media all and (max-width: 428px) {
+    .post-group {
+        grid-template-columns: 1fr;
+    }
+}
