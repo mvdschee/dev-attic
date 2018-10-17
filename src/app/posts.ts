@@ -10,14 +10,14 @@ export const posts = [
         'title': 'Audio Atmosphere',
         'file': 'audio-atmosphere/atmosphere.html',
         'content': 'Atmospheric audio to add more depth to the content',
-        'image': 'audio-atmosphere/preview.png',
+        'image': 'audio-usability/preview.png',
         'medium': 'https://medium.com/@maxvanderschee/the-muted-web-and-how-to-fix-it-5bdb65362e36'
     },
     {
         'title': 'Audio Satisfaction',
         'file': 'audio-satisfaction/satisfaction.html',
         'content': 'Audio giving an interaction more satisfaction',
-        'image': 'audio-satisfaction/preview.png',
+        'image': 'audio-usability/preview.png',
         'medium': 'https://medium.com/@maxvanderschee/the-muted-web-and-how-to-fix-it-5bdb65362e36'
     },
     {

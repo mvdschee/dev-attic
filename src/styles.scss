@@ -86,10 +86,16 @@ flex: 1;
 
 .button {
     color: white;
-    background: #4D4BFC;
+    background: #584AEC;
     outline: none;
     border: none;
     padding: 10px 20px;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: #584AEC;
+        background: darken(white, 5%);
+    }
 }
 
 .post-item {
@@ -144,6 +150,10 @@ flex: 1;
     a {
         color: #5c5c5c;
         border-bottom: 1px solid #5c5c5c;
+
+        &:hover {
+            border-bottom: 2px solid #5c5c5c;  
+        }
     }
 }
 

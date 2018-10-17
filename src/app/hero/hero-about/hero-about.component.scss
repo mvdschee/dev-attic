@@ -1,7 +1,7 @@
 @import "../../../scss/variables";
 
 :host {
-    background-color: #5141FF;
+    background-color: #584AEC;
     position: relative;
     display: flex;
     align-items: center;
@@ -21,31 +21,40 @@
     }
 }
 
+.logo {
+    display: block;    
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    color: transparent;
+    overflow: hidden;
+}
+
 .about-content {
     padding: 0 2rem;
 
-    h1, h3 {
+    h3 {
         color: #f7f7f7;
-    }
-
-    button {
-        color: white;
-        background: #4D4BFC;
-        outline: none;
-        border: none;
-        padding: 10px 20px;
     }
 }
 
 .links {
+    display: flex;
+    justify-content: center;
 
-    a {
+    a { 
         margin: 0 0.5rem;
-        color: #262183; 
-        transition: 0.3s ease-in-out color;
-
-        &:hover {
-            color: white;
+        display: block;
+        color: transparent;
+        width: 36px;
+        height: 36px;
+        overflow: hidden;
+        svg {
+            color: #262183; 
+            transition: 0.3s ease-in-out color;
+            &:hover {
+                color: white;
+            }
         }
     }
 }
