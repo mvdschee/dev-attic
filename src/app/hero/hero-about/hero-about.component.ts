@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeroAboutComponent implements OnInit {
 
   title = 'Dev Attic';
-  description = 'Here on Dev Attic you can find all Proof of concepts I made for the articles I wrote on Medium, Have fun trying them out!';
+  description = 'Here on Dev Attic you can find all Proof of concepts I made for the post on Medium, Have fun trying them out!';
 
   constructor() { }
 
