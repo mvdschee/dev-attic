@@ -1,8 +1,12 @@
-<section class="post-group">
-    <div *ngFor="let post of posts" id={{post.id}} class="post-item" (click)="onSelect(post)">
-        <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
-            <h2>{{ post.title }}</h2>
-        </figure>
+<ul class="post-group clear">
+  <li *ngFor="let post of posts" class="post-item" (click)="onSelect(post)">
+    <div class="post">
+      <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
+        <h2>{{ post.title }}</h2>
+      </figure>
+      <p>{{ post.content }}</p>
+      <a class="button" href="{{post.file}}" target="_blank" rel="noreferrer noopener">{{ post.title }}</a>
     </div>
-</section>
-<app-post-detail  *ngIf="selectedPost" [class]="selectedPost.state" [post]="selectedPost"></app-post-detail>
+    <p class="sub-link">Go to: <a href="{{post.medium}}" target="_blank" rel="noreferrer noopener">Medium post</a></p>
+  </li>
+</ul>

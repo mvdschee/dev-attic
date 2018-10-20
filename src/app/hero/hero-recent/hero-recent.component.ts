@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../posts.service';
+import { PostsService } from '../../posts.service';
+
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: 'app-hero-recent',
+  templateUrl: './hero-recent.component.html',
+  styleUrls: ['./hero-recent.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class HeroRecentComponent implements OnInit {
 
   public posts: object[] = null;
 
@@ -19,11 +20,10 @@ export class PostsComponent implements OnInit {
   getPosts(): any {
     this.postsService.getPostList()
       .subscribe((response) => {
-        this.posts = response.slice(2);
+        this.posts = response.slice(0, 2);
       },
       error => {
         console.log(error);
       });
   }
-
 }

@@ -1,30 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BackendService } from './backend.service';
-import { PostDetailComponent } from './post-detail/post-detail.component';
-import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './/app-routing.module';
-
+import { HeroComponent } from './hero/hero.component';
+import { HeroAboutComponent } from './hero/hero-about/hero-about.component';
+import { HeroRecentComponent } from './hero/hero-recent/hero-recent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    PostDetailComponent,
-    MessagesComponent
+    HeroComponent,
+    HeroAboutComponent,
+    HeroRecentComponent,
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule
+    BrowserModule
   ],
-  providers: [BackendService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
