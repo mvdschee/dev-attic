@@ -14,10 +14,10 @@ h2 {
 }
 
 .redact {
-    background: #adadad;
+    display: block;
     height: 1rem;
     margin: 0.5rem 0;
-    display: block;
+    background: #adadad;
     border-radius: 3px;
     transform: scale3d(0, 1, 1);
     transform-origin: center left;
@@ -39,6 +39,23 @@ h2 {
     }
 }
 
+p {
+    position: relative;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #f7f7f7;
+        border-radius: 3px;
+        transform: scale3d(1, 1, 1);
+        transform-origin: center right;
+        animation: show 2s ease-out normal forwards;
+    }
+    
+}
+
 a {
     color: #5c5c5c;
     border-bottom: 1px solid #5c5c5c;
@@ -51,4 +68,9 @@ a {
 @keyframes hide {
   0%   {transform: scale3d(0, 1, 1);}
   100% {transform: scale3d(1, 1, 1);}
+}
+
+@keyframes show {
+  0%   {transform: scale3d(1, 1, 1);}
+  100% {transform: scale3d(0, 1, 1);}
 }
