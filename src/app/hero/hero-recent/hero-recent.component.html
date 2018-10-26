@@ -3,7 +3,7 @@
 </h2>
 
 <ul class="post-group clear">
-  <li *ngFor="let post of posts" class="post-item" (click)="onSelect(post)">
+  <li *ngFor="let post of posts" class="post-item">
     <div class="post">
       <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
         <h2>{{ post.title }}</h2>

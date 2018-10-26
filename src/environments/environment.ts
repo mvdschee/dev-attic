@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  route: 'src/test/'
+  route: 'https://dev-attic.com/development/'
 };
 
 /*
