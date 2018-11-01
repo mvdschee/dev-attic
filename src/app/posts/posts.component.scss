@@ -4,11 +4,9 @@
 }
 
 .post-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr; 
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     margin: 0 auto;
     padding: 3rem 0;
     box-sizing: border-box;
@@ -20,9 +18,7 @@
     }
 
     .post-group {
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 20px;
-        grid-row-gap: 3rem;
+        // 2 rows
         margin: 0;
         padding: 0;
     }
@@ -30,6 +26,6 @@
 
 @media all and (max-width: 428px) {
     .post-group {
-        grid-template-columns: 1fr;
+        // 1 row
     }
 }

@@ -1,13 +1,12 @@
 :host {
     padding: 4rem;
+    width: 50%;
+    box-sizing: border-box;
 }
 
 .post-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr; 
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
+    display: flex;
+    justify-content: space-around;
     margin: 0 auto;
     padding: 3rem 0;
     box-sizing: border-box;
@@ -26,14 +25,35 @@
     }
 }
 
+@media all and (max-width: 1200px) {
+
+    :host {
+        width: 60%;
+    }
+}
+
+@media all and (max-width: 880px) {
+
+    :host {
+        padding: 2rem;
+    }
+}
+
+@media all and (max-width: 790px) {
+
+    :host {
+        padding: 2rem 1rem;
+    }
+}
+
 @media all and (max-width: 740px) {
     :host {
+        width: 100%;
         padding: 0 1rem;
     }
 
     .post-group {
-        grid-column-gap: 20px;
-        grid-row-gap: 3rem;
+        flex-wrap: wrap;
         margin: 0;
         padding: 0;
     }
@@ -43,10 +63,9 @@
     }
 }
 
-@media all and (max-width: 428px) {
-
+@media all and (max-width: 512px) {
     .post-group {
-        grid-template-columns: 1fr;
+        justify-content: center;
     }
 }
 
