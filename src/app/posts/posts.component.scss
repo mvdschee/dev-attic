@@ -3,29 +3,8 @@
     padding: 4rem;
 }
 
-.post-group {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    padding: 3rem 0;
-    box-sizing: border-box;
-}
-
 @media all and (max-width: 740px) {
     :host {
         padding: 0 1rem;
-    }
-
-    .post-group {
-        // 2 rows
-        margin: 0;
-        padding: 0;
-    }
-}
-
-@media all and (max-width: 428px) {
-    .post-group {
-        // 1 row
     }
 }

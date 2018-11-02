@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-.post-group {
-    display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
-    padding: 3rem 0;
-    box-sizing: border-box;
-}
-
 .scroll {
     display: block;
     padding: 2rem 0 0;
@@ -26,21 +18,18 @@
 }
 
 @media all and (max-width: 1200px) {
-
     :host {
         width: 60%;
     }
 }
 
 @media all and (max-width: 880px) {
-
     :host {
         padding: 2rem;
     }
 }
 
 @media all and (max-width: 790px) {
-
     :host {
         padding: 2rem 1rem;
     }
@@ -52,20 +41,8 @@
         padding: 0 1rem;
     }
 
-    .post-group {
-        flex-wrap: wrap;
-        margin: 0;
-        padding: 0;
-    }
-
     .scroll {
         display: none;
-    }
-}
-
-@media all and (max-width: 512px) {
-    .post-group {
-        justify-content: center;
     }
 }
 

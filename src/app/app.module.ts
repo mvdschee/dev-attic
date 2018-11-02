@@ -9,6 +9,7 @@ import { HeroAboutComponent } from './hero/hero-about/hero-about.component';
 import { HeroRecentComponent } from './hero/hero-recent/hero-recent.component';
 import { HomeComponent } from './home/home.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
     HeroRecentComponent,
     HomeComponent,
     PrivacyComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,

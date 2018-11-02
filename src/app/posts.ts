@@ -25,6 +25,6 @@ export const posts = [
         'file': 'peer-to-peer-web-content/index.html',
         'content': 'Peer-to-Peer content delivery',
         'image': 'peer-to-peer-web-content/preview.png',
-        'medium': ''
+        'medium': 'https://medium.com/@maxvanderschee/the-power-of-peer-to-peer-right-in-your-browser-16fbeff0d44d'
     },
 ];
