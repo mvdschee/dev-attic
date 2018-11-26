@@ -1,21 +1,4 @@
-.footer {
-    margin: 0 4rem;
-    text-align: center;
-
-    h3 {
-        line-height: normal;
-    }
-
-    a {
-        color:  black;
-        border-bottom: 2px solid black;
-    }
-
-    path {
-        fill: darkred;
-    }
-    
-    @media all and (max-width: 425px) {
-        margin: 0 1rem;
-    }
+.main {
+    display: block;
+    height: auto;
 }
