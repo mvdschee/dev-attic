@@ -1,15 +1,5 @@
-<router-outlet></router-outlet>
+<main [@routerTransition]="getState(o)" class="main">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
 
-<footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
-  <h2 class="nocontent hide-from-layout">Footer</h2>
-  <h3>
-    Coded with <br>
-    <svg width="18" height="18" viewBox="-2 0 36 28">
-      <path stroke-width="3" stroke="black" d="M16 5.3c3.4-6.4 10.1-6.4 13.5-3.2 3.3 3.2 3.3 9.6 0 16A38.7 38.7 0 0 1 16 30.9c-5-3.2-11.1-8-13.5-12.8-3.3-6.4-3.3-12.8 0-16C6-1.1 12.6-1.1 16 5.3z" />
-    </svg>
-    <br>
-    by
-    <a href="https://maxvanderschee.nl" target="_blank" rel="noreferrer noopener">Max</a>
-  </h3>
-</footer>
 

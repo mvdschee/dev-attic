@@ -1,12 +1,16 @@
 @import "../../../scss/variables";
 
 :host {
-    background-color: #564bce;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
+    width: auto;
+    max-width: 50%;
+    background-color: #564bce;
+    background-repeat: repeat;
+    background-size: 200px;
     text-align: center;
     z-index: 0;
 
@@ -17,6 +21,7 @@
         width: 193px;
         height: 100%;
         background: linear-gradient(to right, transparent, #5b4fda);
+        top: 0;
         right: 0; 
         z-index: -1;
     }
@@ -28,11 +33,12 @@
     height: 150px;
     margin: 0 auto;
     color: transparent;
-    overflow: hidden;
 }
 
 .about-content {
+    width: 100%;
     padding: 0 2rem;
+    box-sizing: border-box;
 
     h3 {
         color: #f7f7f7;
@@ -67,15 +73,21 @@
     a {
         color: white;
         border-bottom: 1px solid white;
+        margin: 0 1rem;
 
         &:hover {
             border-bottom: 2px solid white;  
         }
     }
+
+    path {
+        fill: darkred;
+    }
 }
 
 @media all and (max-width: 740px) {
     :host {
+        max-width: 100%;
         padding: 2rem 0;  
         
         &:before { 

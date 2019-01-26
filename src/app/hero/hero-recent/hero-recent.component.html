@@ -1,19 +1,6 @@
-<h2>
-  Proof of concepts
-</h2>
+<h2>Proof of concepts</h2>
 
-<ul class="post-group clear">
-  <li *ngFor="let post of posts" class="post-item">
-    <div class="post">
-      <figure [ngStyle]="{'background-image': 'url(' + post.image + ')'}">
-        <h2>{{ post.title }}</h2>
-      </figure>
-      <p>{{ post.content }}</p>
-      <a class="button" href="{{post.file}}" target="_blank" rel="noreferrer noopener">{{ post.title }}</a>
-    </div>
-    <p class="sub-link">Go to: <a href="{{post.medium}}" target="_blank" rel="noreferrer noopener">Medium post</a></p>
-  </li>
-</ul>
+<app-post class="recent-group" *ngIf="posts" [posts]="posts"></app-post>
 
 <span class="scroll">
   Scroll for more Proof of concepts <br>
