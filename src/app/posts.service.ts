@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from '../environments/environment';
 import { posts } from './posts';
 
 export interface Post {
@@ -17,7 +16,6 @@ export interface Post {
 export class PostsService {
 
   private static list: Observable<Post[]> = null;
-  private static postUrl = environment.route;
 
   constructor() { }
 
@@ -26,21 +24,21 @@ export class PostsService {
     if (PostsService.list != null) {
       postList = PostsService.list;
     } else {
-      postList = this.listBuilder(PostsService.postUrl);
+      postList = this.listBuilder();
     }
 
     return postList;
   }
 
-  private listBuilder(url) {
+  private listBuilder() {
    const list: Post[] = [];
 
     posts.forEach(element => {
       list.push({
         title: element.title,
-        file: PostsService.postUrl + element.file,
+        file: element.file,
         content: element.content,
-        image: PostsService.postUrl + element.image,
+        image: element.image,
         medium: element.medium
       });
     });
