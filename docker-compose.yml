@@ -1,11 +1,15 @@
-version: '2'
+version: "3"
 services:
-  devattic:
-    container_name: devattic
-    build:
-      context: ./
-      dockerfile: .docker/angular/Dockerfile
-    volumes:
-      - ./:/var/www/app
-    ports:
-      - 4200:4200
+    container:
+      container_name: angular
+      environment:
+        NPM_FORCE_REBUILD: "false"
+        NPM_DEV: "false"
+      build:
+        context: ./.docker
+        dockerfile: Dockerfile
+      volumes:
+        - '.:/var/www/app'
+        - /var/www/app/node_modules/
+      ports:
+        - "4200:4200"
