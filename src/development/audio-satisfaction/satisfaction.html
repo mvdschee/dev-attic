@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="./assets/css/satisfaction.css">
+        <title>Satisfaction</title>
+    </head>
+    <body>
+        <main id="main">
+            <section id="js-data" class="data full">
+                <div>
+                    <h1>Manually fetching new data</h1>
+                    <button id ="js-data-trigger" class="data-trigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                            <path fill="white" d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                            <path d="M0 0h24v24H0z" fill="none" />
+                        </svg>
+                    </button>
+                    <div id="js-data-loading" class="loading">
+                        <svg viewBox="0 -74 118 220" width="124" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-miterlimit="1.5">
+                            <path fill="#383fcc" stroke="#000003" stroke-width="1.54" d="M9.77.77h98v67h-98z" />
+                            <g transform="translate(0 -90)" stroke="#000003" stroke-width="1.54">
+                                <path fill="#eeedef" d="M18.77 36.02h80v99h-80z" />
+                            </g>
+                            <g id="paper" stroke="#000003" stroke-width="1.54">
+                                <path fill="#eeedef" d="M18.77 36.02h80v99h-80z" />
+                                <path d="M31.77 71.77h54M31.77 81.77h54M31.77 91.77h54M31.77 101.77h54M31.77 111.77h54M31.77 121.77h54M31.77 61.77h54M31.77 51.77h54"
+                                    fill="none" />
+                            </g>
+                            <path d="M.77 32.77v-14.5h116v49.5h-9v-14.5h-98v14.5h-9v-35z" fill="#6770f9" />
+                            <clipPath id="a">
+                                <path d="M.77 32.77v-14.5h116v49.5h-9v-14.5h-98v14.5h-9v-35z" />
+                            </clipPath>
+                            <g clip-path="url(#a)" stroke="#000003" stroke-width="1.54">
+                                <circle cx="14.77" cy="29.77" r="2" fill="#5dd10a" />
+                                <circle cx="24.77" cy="29.77" r="2" fill="#f6be00" />
+                                <circle cx="34.77" cy="29.77" r="2" fill="#ee2800" />
+                            </g>
+                            <path d="M.77 32.77v-14.5h116v49.5h-9v-14.5h-98v14.5h-9v-35z" fill="none" stroke="#000003" stroke-width="1.54" />
+                        </svg>
+                        <p>Fetching new data...</p>
+                    </div>
+                </div>
+                <audio id="js-audio-fax">
+                    <source src="./assets/audio/fax.mp3">
+                    Your browser does not support HTML5 audio.
+                </audio>
+            </section>
+            <section id="js-goal" class="goal full">
+                <div>
+                    <h1>Reward for setting a new goal</h1>
+                    <p>
+                        my new weight goal should be <input id="js-goal-input" type="text">Kg.
+                        <span id="js-goal-set">Great job setting a goal!</span>
+                    </p>
+                </div>
+                <audio id="js-audio-goal">
+                    <source src="./assets/audio/cheer.mp3">
+                    Your browser does not support HTML5 audio.
+                </audio>
+            </section>
+            <section id="js-sort" class="sort full">
+                <div>
+                    <h1>Sorting products/ articles</h1>
+                    <button id="js-sort-button" class="sort-button">Sort products</button>
+                    <ul class="product-group">
+                        <li class="product-item hide"></li>
+                        <li class="product-item"></li>
+                        <li class="product-item hide"></li>
+                        <li class="product-item"></li>
+                        <li class="product-item hide"></li>
+                        <li class="product-item"></li>
+                    </ul>
+                </div>
+                <audio id="js-audio-sort">
+                    <source src="./assets/audio/sort.mp3">
+                    Your browser does not support HTML5 audio.
+                </audio>
+            </section>
+
+            <div class="control">
+                <a href="#js-data">Data</a>
+                <a href="#js-goal">Goal</a>
+                <a href="#js-sort">Sort</a>
+            </div>
+        </main>
+        <script src="./assets/js/intersection-observer.js"></script>
+        <script src="./assets/js/satisfaction.js"></script>
+    </body>
+</html>

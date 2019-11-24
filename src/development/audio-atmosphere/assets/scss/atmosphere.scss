@@ -1,0 +1,85 @@
+/*! atmosphere.scss - v1.0 - 2018-09-09
+* Flamingos are pretty badass!
+* Copyright (c) 2018 Max van der Schee; Licensed MIT */
+
+@import "normalize";
+
+@font-face {
+    font-family: 'Quicksand', sans-serif;
+    src: url('../font/Quicksand-Regular.ttf');
+}
+
+// * {
+//     outline: red 1px solid;
+// }
+
+html {
+    font-family: 'Quicksand';
+}
+
+@media all and (max-width: 768px) {
+    body {
+        display: none;
+    }
+
+    html:before {
+        content: 'Please visit this demo with a computer!';
+        display: block;
+        margin: 2rem;
+        text-align: center;
+    }
+}
+
+.full {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 120vh;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    article {
+        margin: 0 12rem;
+        width: 35rem;
+    }
+
+    a {
+        position: absolute;
+        bottom: 24vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: 0.3s ease-in-out transform;
+
+        &:hover {
+            transform: translate(-50%, -5px);
+        }
+    }
+}
+
+h1 {
+    font-size: 4.5rem;
+    margin: 0 0 1rem;
+    color: #f7f7f7;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+
+h3 {
+    font-size: 4rem;
+    margin: 0;
+    color: #f7f7f7;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+
+button {
+    margin: 3rem 2rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #f7f7f7;
+    background: #2c2ce3;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+

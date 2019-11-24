@@ -1,0 +1,164 @@
+/*! satisfaction.scss - v1.0 - 2018-14-09
+* Flamingos are pretty badass!
+* Copyright (c) 2018 Max van der Schee; Licensed MIT */
+
+@import "normalize";
+
+@font-face {
+    font-family: 'Quicksand', sans-serif;
+    src: url('../font/Quicksand-Regular.ttf');
+}
+
+// * {
+//     outline: red 1px solid;
+// }
+
+html {
+    font-family: 'Quicksand';
+}
+
+@media all and (max-width: 768px) {
+    body {
+        display: none;
+    }
+
+    html:before {
+        content: 'Please visit this demo with a computer!';
+        display: block;
+        margin: 2rem;
+        text-align: center;
+    }
+}
+
+.full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.data {
+    color: white;
+    background: #5555e6;
+
+    .loading {
+        display: block;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+}
+
+.data-trigger {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        transform: rotateZ(20deg);
+    }
+
+    &.disabled {
+        opacity: 0;
+    }
+}
+
+.goal {
+    color: white;
+    background: #6bd799;
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    span {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+        color: transparent;
+        transition: 0.5s ease-in-out;
+        
+        &.show {
+            color: white;
+        }
+    }
+
+
+    input {
+        width: 4rem;
+        border: none;
+        color: white;
+        background: transparent;
+        border-bottom: 2px solid white;
+    }
+}
+
+.sort {
+    color: white;
+    background: #ce8098;
+}
+
+.sort-button {
+    font-size: 1.5rem;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+.product-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr; 
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 0;
+    margin: 2rem auto;
+    list-style: none;
+}
+
+.product-item {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+    transition: 0.3s ease-in-out;
+    background: #6e6fcc;
+
+    &.hide {
+        background: #6bd799;
+    }
+
+    &.remove {
+        transform: scale(0);
+    }
+}
+
+
+.control {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 3rem;
+    bottom: 6vh;
+
+    a { 
+        margin: 0.5rem 0 0;
+        color: white;
+        text-decoration: none;
+        font-size: 2rem;
+        text-align: center;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+}
