@@ -4,17 +4,13 @@
 
 @import "normalize";
 
-@font-face {
-    font-family: 'Quicksand', sans-serif;
-    src: url('../font/Quicksand-Regular.ttf');
-}
 
 // * {
 //     outline: red 1px solid;
 // }
 
 html {
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', sans-serif;
 }
 
 @media all and (max-width: 768px) {
